@@ -1,0 +1,23 @@
+<ion-view view-title="CloudUsers" ng-init="loadMore()(); getCloudUsersCount()">
+  <ion-content>
+    <ion-item>
+        <h1>CloudUsers</h1>
+        <span >loaded {{cloudusers.length}} from total {{cloudusers_count}}</span>
+        <button class="button button-block button-positive" ng-disabled="cookie.name === null" ng-click="loadMore()">Load more users</button>
+        </ion-item>
+            <ion-item ng-repeat="user in cloudusers">
+                <div class="item item-avatar">
+                    <img ng-src="files/{{user.img}}"/>
+                    <p>item: {{$index + 1}}.</p>
+                    <h2>{{user.name}} {{user.second_name}}</h2>
+                    <p>{{user.email}}</p>
+                    <p>id: {{user._id.$oid}}</p>
+                    <p>Registrating date: {{user.date.$date | date: "yyyy-MM-dd h:mm:s a"}}</p>
+                </div>
+            </ion-item>
+        <ion-item ng-show="cloudusers.length > 0">
+            <span >loaded {{cloudusers.length}} from total {{cloudusers_count}}</span>
+            <button class="button button-block button-positive" ng-disabled="cookie.name === null" ng-click="loadMore()">Load more users</button>
+        </ion-item>
+  </ion-content>
+</ion-view>

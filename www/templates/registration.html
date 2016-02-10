@@ -1,0 +1,46 @@
+<ion-view view-title="Registration">
+  <ion-content class="container">
+        <h1>Registration</h1>
+        <form name="form" ng-submit="doRegistration(user)" novalidate>
+	      <div class="list">
+            <small class="valid_notes">this field must can consist letters but no digits</small>
+	      	<label class="item item-input">
+	          <span class="input-label">name</span>
+	          <input type="text" ng-model="user.name" name="name" required>
+	        </label>
+	        <span style="color:red" ng-show="form.name.$dirty && form.name.$invalid">
+                <span ng-show="form.name.$error.required">Name is required.</span>
+			</span>
+	        <label class="item item-input">
+	          <span class="input-label">second_name</span>
+	          <input type="text" ng-model="user.second_name" name="second_name" required>
+	        </label>
+	        <span style="color:red" ng-show="form.second_name.$dirty && form.second_name.$invalid">
+                <span ng-show="form.second_name.$error.required">Second name is required.</span>
+            </span>
+            <br/>
+			<small class="valid_notes">this field must be a realistic email adress</small>
+	        <label class="item item-input">
+	          <span class="input-label">email</span>
+	          <input type="email" ng-model="user.email" name="email" required>
+	        </label>
+	        <span style="color:red" ng-show="form.email.$dirty && form.email.$invalid">
+                <span ng-show="form.email.$error.required">Email is required.</span>
+                <span ng-show="form.email.$error.email">Invalid email address.</span>
+            </span>
+            <br/>
+            <small class="valid_notes">this field must consist min 4 symbols, min 1 digit, uppercase and lowercase letters</small>
+	        <label class="item item-input">
+	          <span class="input-label">password</span>
+	          <input type="password" ng-model="user.password" name="password" required ng-minlength="4">
+	        </label>
+	        <span style="color:red" ng-show="form.password.$dirty && form.password.$invalid">
+                <span ng-show="form.password.$error.required">Password is required.</span>
+                <span ng-show="form.password.$error.minlength">Password must be at list 4 characters.</span>
+            </span>
+	        <span class="valid_notes">{{login_result}}</span>
+	        <button class="button button-block button-positive" type="submit" ng-disabled="form.$invalid">Sign in</button>
+	      </div>
+	    </form>
+  </ion-content>
+</ion-view>

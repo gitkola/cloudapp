@@ -1,0 +1,16 @@
+<ion-view view-title="Home">
+  <ion-content class="container">
+  	<h1>Home</h1>
+  	<div  ng-show="cookie.name !== null">
+	    <h3>You are logged as {{cookie.name}}</h3>	
+        <a href="#/app/profile" class="button button-block button-calm">Profile {{cookie.name}}</a>
+    	<a href="#/app/cloudusers" class="button button-block button-calm">CloudUsers</a>
+        <a href="#/app/logout" class="button button-block button-stable" ng-click="doLogout()">Logout {{cookie.name}}</a>
+  	</div>
+  	<div  ng-show="cookie.name === null">
+	    <h3>Please login or registrate your account to see list of CloudUsers</h3>	
+        <a href="#/app/login" ng-show="cookie.name === null" class="button button-block button-positive">Login</a>
+	    <a href="#/app/registration" ng-show="cookie.name === null" class="button button-block button-positive">Registration</a>
+  	</div>
+  </ion-content>
+</ion-view>

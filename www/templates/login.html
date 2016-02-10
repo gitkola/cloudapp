@@ -1,0 +1,43 @@
+<ion-view view-title="Login {{cookie.name}}">
+ 	<ion-content class="container">
+        <h1>Login</h1>
+		<form name="form" ng-submit="doLogin(user.email, user.password)" novalidate>
+	      <div class="list">
+	      	<small class="valid_notes">this field must be a realistic email adress</small>
+	        <label class="item item-input">
+	          <span class="input-label">email</span>
+	          <input type="email" ng-model="user.email" name="email" required>
+	        </label>
+	        <span ng-show="form.email.$dirty && form.email.$invalid">
+                <span ng-show="form.email.$error.required">Email is required.</span>
+                <span ng-show="form.email.$error.email">Invalid email address.</span>
+            </span>
+            <span ng-show="valid_result.email !== 'Ok'">{{valid_result.email}}</span>
+            <br/>
+            <small class="valid_notes">this field must consist min 4 symbols, min 1 digit, uppercase and lowercase letters</small>
+	        <label class="item item-input">
+	          <span class="input-label">password</span>
+	          <input type="password" ng-model="user.password" name="password" required ng-minlength="4">
+	        </label>
+	        <span ng-show="form.password.$dirty && form.password.$invalid">
+                <span ng-show="form.password.$error.required">Password is required.</span>
+                <span ng-show="form.password.$error.minlength">Password must be at list 4 characters.</span>
+            </span>
+            <span ng-show="valid_result.password !== 'Ok'">{{valid_result.password}}</span>
+            <br/>
+	        <h2>{{login_result}}</h2>
+	        <button class="button button-block button-positive" type="submit" ng-disabled="form.$invalid">Sign in</button>
+	      </div>
+	    </form>
+
+
+
+
+
+
+  	</ion-content>
+</ion-view>
+
+
+
+
